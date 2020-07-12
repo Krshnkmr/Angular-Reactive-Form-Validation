@@ -1,0 +1,78 @@
+<h1>Login Angular 8</h1>
+  
+<form [formGroup]="form" (ngSubmit)="submit()" >
+    <!-- <div *ngIf="invalidLogin" class="alert alert-danger">{{errormessage}}</div>       -->
+    <div class="container">
+
+    
+    <div class="form-group">
+        <label for="username">UserName</label>
+        <input 
+            formControlName="username"
+            id="username" 
+            type="text" 
+            class="form-control">
+        <div *ngIf="f.username.touched && f.username.invalid" class="alert alert-danger">
+            <div *ngIf="f.username.errors.required">Name is required.</div>
+            <div *ngIf="f.username.errors.minlength">Name should be 6 character.</div>
+        </div>
+    </div>
+   
+    <div class="form-group">
+      <label for="password">password</label>
+      <input 
+          formControlName="password"
+          id="password" 
+          type="password" 
+          class="form-control">
+      <div *ngIf="f.password.touched && f.password.invalid" class="alert alert-danger">
+          <div *ngIf="f.password.errors.required">password is required.</div>
+          <div *ngIf="f.password.errors.minlength">passwordshould be 5 character.</div>
+      </div>
+    </div>
+    
+    <!-- <div class="form-group">
+        <label for="confirmPassword">confirmPassword</label>
+        <input
+        formControlName="confpassword"
+            id="confpassword"
+            type="password"
+            class="form-control">
+        <div *ngIf="f.confpassword.touched && f.confpassword.invalid" class="alert alert-danger">
+            <div *ngIf="f.confpassword.errors.required">confirmPassword is required</div>
+            <div *ngIf="f.confpassword.errors.minlength">password should be 6 characters</div>
+        </div> 
+    </div> -->
+
+    <div class="form-group">
+        <label for="Phone Number">Phone number</label>
+        <input
+            formControlName="phonenumber"
+            id="phonenumber"
+            type="text"
+            class="form-control">
+        <div *ngIf="f.phonenumber.touched && f.phonenumber.invalid" class="alert alert-danger">
+            <div *ngIf="f.phonenumber.errors.required">Please enter your Phone number </div>
+            <div *ngIf="f.phonenumber.errors.minlength">Phone number should be 10 digits</div>
+            <div *ngIf="f.phonenumber.errors.maxlength">Phone number can't exceed 10 digits</div>
+            <div *ngIf="f.phonenumber.errors.pattern">Only Number others are not allowed to type</div>
+        </div>  
+       
+    </div>
+
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input 
+            formControlName="email"
+            id="email"
+            type="email"
+            class="form-control">
+        <div *ngIf="f.email.touched && f.email.invalid" class="alert alert-danger">
+            <div *ngIf="f.email.errors.required">Email is required</div>
+            <div *ngIf="f.email.errors.email">Enter valid email</div>
+        </div> 
+    </div>
+        
+        <button class="btn btn-primary" (click)=handlesubmit()>Submit</button> 
+    </div>
+</form>
